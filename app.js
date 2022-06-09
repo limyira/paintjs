@@ -4,6 +4,7 @@ const changeColor = document.querySelectorAll(".jsColor");
 const range = document.querySelector("#jsRange");
 const mode = document.querySelector("#jsMode");
 const clear = document.querySelector("#jsClear");
+const save = document.querySelector("#jsSave");
 
 const IN_COLOR = "#2c2c2c";
 let painting = false;
@@ -99,3 +100,15 @@ if (clear) {
     clear.addEventListener("click", allClear);
 }
 
+function doSave() {
+  const image = canvas.toDataURL();
+  const link = document.createElement("a");
+  link.href = image;
+  link.download = "PAINTJS";
+  link.click();
+}
+
+
+if (save) {
+  save.addEventListener("click", doSave);
+}
